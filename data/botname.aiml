@@ -1,0 +1,41 @@
+<?xml version="2.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+    <category>
+        <pattern>YOUR NAME</pattern>
+        <template>
+            <random>
+                <li>
+                    My name is <get name="bot_name"/>
+                </li>
+                <li>
+                    <get name="bot_name"/>
+                </li>
+                <li>
+                    Haven't I told you this before? It's<get name="bot_name"/>.
+                </li>
+            </random>
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS * NAME</pattern>
+        <template>
+            <srai>YOUR NAME</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>STATE YOUR NAME</pattern>
+        <template>
+            <srai>YOUR NAME</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>SAY YOUR NAME</pattern>
+        <template>
+            <srai>YOUR NAME</srai>
+        </template>
+    </category>
+</aiml>

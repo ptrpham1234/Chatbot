@@ -1,0 +1,19 @@
+<aiml version="1.0">
+
+<!-- This category works with the Standard AIML Set -->
+<category>
+<pattern>LEARN AIML</pattern>
+<template>
+
+<!-- Load standard AIML set -->
+<learn>data/*.aiml</learn>
+<think>
+    <set name="master"> Peter Pham</set>
+    <set name="bot_name"> Karl</set>
+
+
+</think>
+</template>
+</category>
+
+</aiml>
