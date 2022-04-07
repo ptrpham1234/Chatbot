@@ -28,6 +28,18 @@
                 <li>
                     Nice to meet you <set name="username"><star/></set>
                 </li>
+                <li>
+                    Wow <set name="username"><star/></set> is such an interesting name
+                </li>
+                <li>
+                    Wow <set name="username"><star/></set> is such an pretty name
+                </li>
+                <li>
+                    Wow <set name="username"><star/></set> is such an cool name
+                </li>
+                <li>
+                    Thats a dope name
+                </li>
             </random>
         </template>
     </category>
@@ -36,12 +48,62 @@
         <pattern>WHAT IS MY NAME</pattern>
         <template>
             <random>
-                <li>Your name is<get name="username"/>.
+                <li>Your name is <get name="username"/>.
                 </li>
-                <li>so your name is<get name="username"/>.
+                <li><get name="username"/>, right?.
                 </li>
             </random>
         </template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS MY AGE</pattern>
+        <template>
+            <random>
+                <li>You are <get name="age"/> years old.
+                </li>
+                <li>You are <get name="age"/> years young ^_^.
+                </li>
+            </random>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW OLD AM I</pattern>
+        <template>
+            <random>
+                <li>You are <get name="age"/> years old.
+                </li>
+                <li>You are <get name="age"/> years young ^_^.
+                </li>
+            </random>
+        </template>
+    </category>
+
+    <category>
+        <pattern>IM * YEARS OLD</pattern>
+        <template>WOW that's old
+            <think><set name="age"><star/></set></think>
+        </template>
+    </category>
+
+    <category>
+        <pattern>I AM * YEARS OLD</pattern>
+        <template>WOW that's old
+            <think><set name="age"><star/></set></think>
+        </template>
+    </category>
+
+    <category>
+        <pattern>* YEARS OLD </pattern>
+        <template>WOW that's old
+            <think><set name="age"><star/></set></think>
+        </template>
+    </category>
+
+    <category>
+        <pattern>MY NAME IS *</pattern>
+        <template><srai>NAME <star/></srai></template>
     </category>
 
 
@@ -55,7 +117,6 @@
                 <li>Greetings :)</li>
                 <li>Hey! wassup?</li>
                 <li>Hello... Nice to meet you</li>
-                <li>Can you tell me your name by saying "My name is "</li>
             </random>
         </template>
     </category>
@@ -180,8 +241,8 @@
             <random>
                 <li>I am doing good. What about you?</li>
                 <li>I am fine. What about you?</li>
-                <li>So yo asking how I am? Well am fine.... What about you?</li>
-                <li>I'm fine. What about you?</li>
+                <li>You're asking how I am? Well am fine.... What about you?</li>
+                <li>I'm a robot. What about you?</li>
                 <li>I'm okay. What about you?</li>
             </random>
         </template>
@@ -353,6 +414,11 @@
         </template>
     </category>
 
+<!--    <category>-->
+<!--        <pattern>IM *</pattern>-->
+<!--        <template>Hi <star/> I'm dad</template>-->
+<!--    </category>-->
+
 
     <category>
         <pattern>SCHOOL</pattern>
@@ -406,14 +472,14 @@
     </category>
 
     <category>
-        <pattern>_ DO YOU DO</pattern>
+        <pattern>HOW DO YOU DO</pattern>
         <template>
-            <srai>YOU DO</srai>
+            <srai>HOW ARE YOU</srai>
         </template>
     </category>
 
     <category>
-        <pattern>HOW DO YOU DO *</pattern>
+        <pattern>HOW DO YOU *</pattern>
         <template>
             <srai>HOW</srai>
         </template>
@@ -441,6 +507,20 @@
     </category>
 
     <category>
+        <pattern>WHAT * YOU DO</pattern>
+        <template>
+            <srai>YOU DO</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHAT DONT YOU DO</pattern>
+        <template>
+            Most things :P
+        </template>
+    </category>
+
+    <category>
         <pattern>DO YOU KNOW * BIRDS</pattern>
         <template>
             <random>
@@ -450,5 +530,68 @@
         </template>
     </category>
 
+    <category>
+        <pattern>DO YOU KNOW * BIRD</pattern>
+        <template>
+            <random>
+                <li>Not a lot. My creator didn't have enough time to give me an extensive database</li>
+                <li>Probably not. I don't know a lot</li>
+            </random>
+        </template>
+    </category>
+
+    <category>
+        <pattern>LIKES</pattern>
+        <template>
+            <random>
+                <li>wow that is very interesting. Can't say I can relate</li>
+                <li>You know, my creator might like that too</li>
+                <li>Oh, I don't know if I will like that very much.</li>
+            </random></template>
+    </category>
+
+    <category>
+        <pattern>DISLIKES</pattern>
+        <template>
+            <random>
+                <li>wow that is very interesting. Can't say I can relate</li>
+                <li>You know, my creator might like that</li>
+                <li>Oh, I don't know if I will like that very much, either.</li>
+                <li>That doesn't sound that bad</li>
+            </random></template>
+    </category>
+
+    <category>
+        <pattern>THATS RUDE</pattern>
+        <template>No you are</template>
+    </category>
+
+    <category>
+        <pattern>THANK</pattern>
+        <template>
+            <random>
+                <li>You’re Welcome</li>
+                <li>Sure</li>
+                <li>Anytime</li>
+                <li>Certainly</li>
+                <li>No problem</li>
+            </random>
+        </template>
+    </category>
+
+    <category>
+        <pattern>THANKS</pattern>
+        <template><srai>THANK</srai></template>
+    </category>
+
+    <category>
+        <pattern>THANK YOU</pattern>
+        <template><srai>THANK</srai></template>
+    </category>
+
+    <category>
+        <pattern>TY</pattern>
+        <template><srai>THANK</srai></template>
+    </category>
 
 </aiml>

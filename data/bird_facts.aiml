@@ -432,7 +432,7 @@
         <template>The American goldfinch is a small finch, 11–14 cm (4.3–5.5 in) long, with a wingspan of 19–22 cm (7.5–8.7 in).</template>
     </category>
 
-
+<!--    ========================================================================================================================= -->
 
     <category>
         <pattern>LIFE Northern Cardinal</pattern>
@@ -495,6 +495,7 @@
         <template>Goldfinches are very vocal birds. These birds have a lifespan of 3 to 6 years in the wild.</template>
     </category>
 
+    <!--    ========================================================================================================================= -->
 
     <category>
         <pattern>FOOD Northern Cardinal</pattern>
@@ -557,9 +558,160 @@
         <template>Diet. Mostly seeds, some insects. Diet is primarily seeds, especially those of the daisy (composite) family, also those of weeds and grasses, and small seeds of trees such as elm, birch, and alder. Also eats buds, bark of young twigs, maple sap.</template>
     </category>
 
+    <!--    ========================================================================================================================= -->
+    
     <category>
-        <pattern>LOCATION *</pattern>
-        <template>All of the bird species in my database are from North America</template>
+        <pattern>ABOUT Northern Cardinal</pattern>
+        <template>the Cardinal is the official state bird of no fewer than seven eastern states. Abundant in the Southeast, it has been extending its range northward for decades, and it now brightens winter days with its color and its whistled song as far north as southeastern Canada.</template>
+    </category>
+    <category>
+        <pattern>ABOUT Northern Mockingbird</pattern>
+        <template>
+            <random>
+                <li>The mockingbird's latin name is Mimus polyglottos, which literally translates to “many-tongued mimic.” A polyglot is a person who speaks many languages, referencing the bird’s ability to imitate sounds from its environment. While mockingbirds are known to sing several hundred different songs, some research suggests that they might not learn to copy new sounds in adulthood, as previously thought.</li>
+                <li>The white patches on a Northern Mockingbird’s wings and outer tail feathers serve dual purposes: The birds often show off these plumes during mating rituals, and they also flash them when defending their territory from potential predators like hawks and snakes. </li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>ABOUT Mourning Dove</pattern>
+        <template>
+            <random>
+                <li>Mourning Doves eat roughly 12 to 20 percent of their body weight per day, or 71 calories on average.</li>
+                <li>A graceful, slender-tailed, small-headed dove that’s common across the continent. Mourning Doves perch on telephone wires and forage for seeds on the ground; their flight is fast and bullet straight. Their soft, drawn-out calls sound like laments. When taking off, their wings make a sharp whistling or whinnying. Mourning Doves are the most frequently hunted species in North America.</li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>ABOUT White winged Dove</pattern>
+        <template>
+            <random>
+                <li>Originally a bird of desert thickets, the White-winged Dove has become a common sight in cities and towns across the southern U.S. When perched, this bird’s unspotted brown upperparts and neat white crescents along the wing distinguish it from the ubiquitous Mourning Dove. In flight, those subdued crescents become flashing white stripes worthy of the bird’s common name. Take a closer look and you’ll see a remarkably colorful face, with bright-orange eyes and blue “eye shadow.”</li>
+                <li>Like other doves and pigeons, White-winged Doves have some unusual abilities. They can suck and swallow water without moving their heads. And they use a secretion from the esophagus, known as crop milk, to feed nestlings. Both parents may consume snails and bone fragments to help their bodies create the nutritious fluid.</li>
+                <li>Although the White-winged Dove is mostly resident in the Southwest, it is expanding its range, and individuals can be found far afield. White-winged Doves have been seen from Alaska to Ontario, Maine, Newfoundland, and most places in between. </li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>ABOUT Great tailed Grackle</pattern>
+        <template>
+            <random>
+                <li>A big, brash blackbird, the male Great-tailed Grackle shimmers in iridescent black and purple, and trails a tail that will make you look twice. The rich brown females are about half the male’s size. Flocks of these long-legged, social birds strut and hop on suburban lawns, golf courses, fields, and marshes in Texas, the Southwest, and southern Great Plains. In the evening, raucous flocks pack neighborhood trees, filling the sky with their amazing (some might say ear-splitting) voices. </li>
+                <li>Because they’re smaller and require less food, female Great-tailed Grackle chicks are more likely than their brothers to survive to fledging. Likewise, adult females may outlive males, resulting in a “sex-biased” population with greater numbers of females than males. </li>
+                <li>Although you’ll usually see them feeding on land, Great-tailed Grackles may also wade into the water to grab a frog or fish. </li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>ABOUT Yellow rumped Warbler</pattern>
+        <template>
+            <random>
+                <li>Yellow-rumped Warblers are impressive in the sheer numbers with which they flood the continent each fall. Shrubs and trees fill with the streaky brown-and-yellow birds and their distinctive, sharp chips. Though the color palette is subdued all winter, you owe it to yourself to seek these birds out on their spring migration or on their breeding grounds. Spring molt brings a transformation, leaving them a dazzling mix of bright yellow, charcoal gray and black, and bold white. </li>
+                <li>Male Yellow-rumped Warblers tend to forage higher in trees than females do. </li>
+                <li>When Yellow-rumped Warblers find themselves foraging with other warbler species, they typically let Palm, Magnolia and Black-throated Green warblers do as they wish, but they assert themselves over Pine and Blackburnian warblers.</li>
+                <li>The Yellow-rumped Warbler is the only warbler able to digest the waxes found in bayberries and wax myrtles. Its ability to use these fruits allows it to winter farther north than other warblers, sometimes as far north as Newfoundland. </li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>ABOUT House Sparrow</pattern>
+        <template>
+            <random>
+                <li>You can find House Sparrows most places where there are houses (or other buildings), and few places where there aren’t. Along with two other introduced species, the European Starling and the Rock Pigeon, these are some of our most common birds. Their constant presence outside our doors makes them easy to overlook, and their tendency to displace native birds from nest boxes causes some people to resent them. But House Sparrows, with their capacity to live so intimately with us, are just beneficiaries of our own success.</li>
+                <li>The House Sparrow prefers to nest in manmade structures such as eaves or walls of buildings, street lights, and nest boxes instead of in natural nest sites such as holes in trees.</li>
+                <li>The House Sparrow takes frequent dust baths. It throws soil and dust over its body feathers, just as if it were bathing with water. In doing so, a sparrow may make a small depression in the ground, and sometimes defends this spot against other sparrows.</li>
+                <li>House Sparrows aggressively defend their nest holes. A scientist in 1889 reported cases of House Sparrows attacking 70 different bird species. House Sparrows sometimes evict other birds from nest holes, including Eastern Bluebirds, Purple Martins, and Tree Swallows.</li>
+                <li>House Sparrows have been seen stealing food from American Robins and piercing flowers to drain them of nectar.</li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>ABOUT Ruby crowned Kinglet</pattern>
+        <template>
+            <random>
+                <li>A tiny bird seemingly overflowing with energy, the Ruby-crowned Kinglet forages almost frantically through lower branches of shrubs and trees. Its habit of constantly flicking its wings is a key identification clue. Smaller than a warbler or chickadee, this plain green-gray bird has a white eyering and a white bar on the wing. Alas, the male’s brilliant ruby crown patch usually stays hidden—your best chance to see it is to find an excited male singing in spring or summer.</li>
+                <li>Ruby-crowned Kinglets seem nervous as they flit through the foliage, flicking their wings nearly constantly. Keeping an eye out for this habit can be a useful aid to identifying kinglets.</li>
+                <li>Metabolic studies on Ruby-crowned Kinglets suggest that these tiny birds use only about 10 calories (technically, kilocalories) per day.</li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>ABOUT Eastern Phoebe</pattern>
+        <template>
+            <random>
+                <li>One of our most familiar eastern flycatchers, the Eastern Phoebe’s raspy “phoebe” call is a frequent sound around yards and farms in spring and summer. These brown-and-white songbirds sit upright and wag their tails from prominent, low perches. They typically place their mud-and-grass nests in protected nooks on bridges, barns, and houses, which adds to the species’ familiarity to humans. Hardy birds, Eastern Phoebes winter farther north than most other flycatchers and are one of the earliest returning migrants in spring. </li>
+                <li>The use of buildings and bridges for nest sites has allowed the Eastern Phoebe to tolerate the landscape changes made by humans and even expand its range. However, it still uses natural nest sites when they are available.</li>
+                <li>Unlike most birds, Eastern Phoebes often reuse nests in subsequent years—and sometimes Barn Swallows use them in between. In turn, Eastern Phoebes may renovate and use old American Robin or Barn Swallow nests themselves.</li>
+                <li>The Eastern Phoebe is a loner, rarely coming in contact with other phoebes. Even members of a mated pair do not spend much time together. They may roost together early in pair formation, but even during egg laying the female frequently chases the male away from her.</li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>ABOUT Barn Swallow</pattern>
+        <template>
+            <random>
+                <li>Glistening cobalt blue above and tawny below, Barn Swallows dart gracefully over fields, barnyards, and open water in search of flying insect prey. Look for the long, deeply forked tail that streams out behind this agile flyer and sets it apart from all other North American swallows. Barn Swallows often cruise low, flying just a few inches above the ground or water. True to their name, they build their cup-shaped mud nests almost exclusively on human-made structures.</li>
+                <li>The Barn Swallow is the most abundant and widely distributed swallow species in the world. It breeds throughout the Northern Hemisphere and winters in much of the Southern Hemisphere.</li>
+                <li>Barn Swallow parents sometimes get help from other birds to feed their young. These “helpers at the nest” are usually older siblings from previous clutches, but unrelated juveniles may help as well. </li>
+                <li>According to legend, the Barn Swallow got its forked tail because it stole fire from the gods to bring to people. An angry deity hurled a firebrand at the swallow, singeing away its middle tail feathers.</li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>ABOUT Blue Jay</pattern>
+        <template>
+            <random>
+                <li>This common, large songbird is familiar to many people, with its perky crest; blue, white, and black plumage; and noisy calls. Blue Jays are known for their intelligence and complex social systems with tight family bonds. Their fondness for acorns is credited with helping spread oak trees after the last glacial period.</li>
+                <li>The Blue Jay frequently mimics the calls of hawks, especially the Red-shouldered Hawk. These calls may provide information to other jays that a hawk is around, or may be used to deceive other species into believing a hawk is present.</li>
+                <li>Tool use has never been reported for wild Blue Jays, but captive Blue Jays used strips of newspaper to rake in food pellets from outside their cages.</li>
+                <li>Blue Jays lower their crests when they are feeding peacefully with family and flock members or tending to nestlings.</li>
+                <li>The pigment in Blue Jay feathers is melanin, which is brown. The blue color is caused by scattering light through modified cells on the surface of the feather barbs.</li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>ABOUT Carolina Wren</pattern>
+        <template>
+            <random>
+                <li>In summer it can seem that every patch of woods in the eastern United States rings with the rolling song of the Carolina Wren. This shy bird can be hard to see, but it delivers an amazing number of decibels for its size. Follow its teakettle-teakettle! and other piercing exclamations through backyard or forest, and you may be rewarded with glimpses of this bird's rich cinnamon plumage, white eyebrow stripe, and long, upward-cocked tail. This hardy bird has been wintering farther and farther north in recent decades.</li>
+                <li>Unlike other wren species in its genus, only the male Carolina Wren sings the loud song. In other species, such as the Stripe-breasted Wren of Central America, both members of a pair sing together. The male and female sing different parts, and usually interweave their songs such that they sound like a single bird singing.</li>
+                <li>A pair bond may form between a male and a female at any time of the year, and the pair will stay together for life. Members of a pair stay together on their territory year-round, and forage and move around the territory together.</li>
+                <li>One captive male Carolina Wren sang nearly 3,000 times in a single day.</li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>ABOUT Carolina Chickadee</pattern>
+        <template>
+            <random>
+                <li>John James Audubon named this bird while he was in South Carolina. The curious, intelligent Carolina Chickadee looks very much like a Black-capped Chickadee, with a black cap, black bib, gray wings and back, and whitish underside. Carolina and Black-capped chickadees hybridize in the area where their ranges overlap, but the two species probably diverged more than 2.5 million years ago. </li>
+                <li>Where the two species ranges come in contact, the Carolina and Black-capped chickadees occasionally hybridize. Hybrids can sing the songs of either species, or might sing something intermediate. </li>
+                <li>The pair bond between a male and female Carolina Chickadee can remain intact for several years. The probability that a pair will remain together seems to vary among populations, with nearly all pairs remaining together in subsequent years in a study in Texas, but only half staying together in a study in Tennessee. If a nest attempt fails, a female may seek out a new male on a different territory. </li>
+                <li>In winter, Carolina Chickadees live in flocks of two to eight birds and defend areas against other flocks. Dominant birds in these flocks establish breeding territories in the summer that were part of the winter flock's range. </li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>ABOUT House Finch</pattern>
+        <template>
+            <random>
+                <li>The House Finch is a recent introduction from western into eastern North America (and Hawaii), but it has received a warmer reception than other arrivals like the European Starling and House Sparrow. That’s partly due to the cheerful red head and breast of males, and to the bird’s long, twittering song, which can now be heard in most of the neighborhoods of the continent. If you haven’t seen one recently, chances are you can find one at the next bird feeder you come across.</li>
+                <li>House Finches were introduced to Oahu from San Francisco sometime before 1870. They had become abundant on all the major Hawaiian Islands by 1901.</li>
+                <li>House Finches feed their nestlings exclusively plant foods, a fairly rare occurrence in the bird world. Many birds that are vegetarians as adults still find animal foods to keep their fast-growing young supplied with protein.</li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>ABOUT American Goldfinch</pattern>
+        <template>
+            <random>
+                <li>This handsome little finch, the state bird of New Jersey, Iowa, and Washington, is welcome and common at feeders, where it takes primarily sunflower and nyjer. Goldfinches often flock with Pine Siskins and Common Redpolls. Spring males are brilliant yellow and shiny black with a bit of white. Females and all winter birds are more dull but identifiable by their conical bill; pointed, notched tail; wingbars; and lack of streaking. During molts they look bizarrely patchy.</li>
+                <li>Goldfinches are among the strictest vegetarians in the bird world, selecting an entirely vegetable diet and only inadvertently swallowing an occasional insect.</li>
+                <li>Goldfinches are among the strictest vegetarians in the bird world, selecting an entirely vegetable diet and only inadvertently swallowing an occasional insect.</li>
+                <li>Paired-up goldfinches make virtually identical flight calls; goldfinches may be able to distinguish members of various pairs by these calls.</li>
+                <li>American Goldfinches breed later than most North American birds. They wait to nest until June or July when milkweed, thistle, and other plants have produced their fibrous seeds, which goldfinches incorporate into their nests and also feed their young.</li>
+            </random>
+        </template>
     </category>
 
 

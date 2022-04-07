@@ -16,6 +16,13 @@
     </category>
 
     <category>
+        <pattern>TELL A FACT</pattern>
+        <template>
+            <srai>BIRD FACT</srai>
+        </template>
+    </category>
+
+    <category>
         <pattern>WHAT IS A * BIRD FACT</pattern>
         <template>
             <srai>BIRD FACT</srai>
@@ -24,6 +31,13 @@
 
     <category>
         <pattern>GIVE ME A BIRD FACT</pattern>
+        <template>
+            <srai>BIRD FACT</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>GIVE ME BIRD FACT</pattern>
         <template>
             <srai>BIRD FACT</srai>
         </template>
@@ -43,6 +57,12 @@
         </template>
     </category>
 
-    <category></category>
+    <category>
+        <pattern>ABOUT</pattern>
+        <template>
+            <srai>BIRD FACT</srai>
+        </template>
+    </category>
+
 
 </aiml>

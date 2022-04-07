@@ -4,7 +4,13 @@
     <category>
         <pattern>*</pattern>
         <template>
-            Sorry my creator hasn't programmed that in yet. Please try again.
+            <random>
+                <li>Sorry my creator hasn't programmed that in yet. Please try again.</li>
+                <li>Uh oh I don't know the answer to that. Maybe check your spelling?</li>
+                <li>Sorry, I was trying to charge my phone. What were you trying to say?</li>
+                <li>Sorry, I was calculating the meaning of life and missed your statement. Say that again?</li>
+                <li>Hmmm, I’m not sure. Can you try that again?</li>
+            </random>
         </template>
     </category>
 </aiml>
