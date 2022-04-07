@@ -19,14 +19,14 @@
     </category>
 
     <category>
-        <pattern>MY NAME IS *</pattern>
+        <pattern>NAME *</pattern>
         <template>
             <random>
                 <li>
                     <set name="username"><star/></set> is a nice name.
                 </li>
                 <li>
-                    <set name="username">Nice to meet you <star/></set>
+                    Nice to meet you <set name="username"><star/></set>
                 </li>
             </random>
         </template>
@@ -138,7 +138,6 @@
         </template>
     </category>
 
-
     <category>
         <pattern>YES</pattern>
         <template>
@@ -196,7 +195,7 @@
     </category>
 
     <category>
-        <pattern>HOW ARE YOU DOING?</pattern>
+        <pattern>HOW ARE YOU ?</pattern>
         <template>
             <srai>HOW ARE YOU</srai>
         </template>
@@ -204,6 +203,13 @@
 
     <category>
         <pattern>HOW ARE YOU DOING *</pattern>
+        <template>
+            <srai>HOW ARE YOU</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW ARE YOU DOING</pattern>
         <template>
             <srai>HOW ARE YOU</srai>
         </template>
@@ -223,6 +229,106 @@
         </template>
     </category>
 
+    <category>
+        <pattern>IM DOING GOOD</pattern><that>HOW ARE YOU</that>
+        <template>
+            <srai>GOOD</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>IM DOING AMAZING</pattern><that>HOW ARE YOU</that>
+        <template>
+            <srai>GOOD</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>AMAZING</pattern><that>HOW ARE YOU</that>
+        <template>
+            <srai>GOOD</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>IM DOING ALRIGHT</pattern><that>HOW ARE YOU</that>
+        <template>
+            <srai>GOOD</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>ALRIGHT</pattern><that>HOW ARE YOU</that>
+        <template>
+            <srai>GOOD</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>IM DOING OK</pattern><that>HOW ARE YOU</that>
+        <template>
+            <srai>GOOD</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>OK</pattern><that>HOW ARE YOU</that>
+        <template>
+            <srai>GOOD</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>IM DOING BAD</pattern><that>HOW ARE YOU</that>
+        <template>
+            <srai>BAD</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>IM DOING TERRIBLE</pattern> <that>HOW ARE YOU</that>
+        <template>
+            <srai>BAD</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>TERRIBLE</pattern> <that>HOW ARE YOU</that>
+        <template>
+            <srai>BAD</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>GOOD</pattern>
+        <template>
+            That's great!
+        </template>
+    </category>
+
+    <category>
+        <pattern>OK</pattern>
+        <template>
+            That's good.
+        </template>
+    </category>
+
+    <category>
+        <pattern>BAD</pattern>
+        <template>
+            <random>
+                <li>Oh no. Don't worry it can only get better from here.</li>
+                <li>That's ok. Take a break and hopefully it'll get better</li>
+            </random>
+        </template>
+    </category>
+
+    <category>
+        <pattern>I HOPE *</pattern>
+        <template>
+            I hope so too.
+        </template>
+    </category>
 
     <category>
         <pattern>MY PET NAME IS *</pattern>
@@ -246,6 +352,7 @@
             Your pet name is <get name="petname"/>.
         </template>
     </category>
+
 
     <category>
         <pattern>SCHOOL</pattern>
@@ -279,5 +386,69 @@
             <srai>SCHOOL</srai>
         </template>
     </category>
+
+    <category>
+        <pattern>YOU DO</pattern>
+        <template>
+            I can do a lot of things for example, I can tell you a random bird fact, or about a specific bird I mentioned above, or I can also tell you a joke.
+            Things I can tell you about the listed birds are their lifespan, size and diet
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW</pattern>
+        <template>
+            <random>
+                <li>That is a very good question let me ask my creator that some time</li>
+                <li>Beats me chief. I just go beep boop beep. Then magic happens</li>
+            </random>
+        </template>
+    </category>
+
+    <category>
+        <pattern>_ DO YOU DO</pattern>
+        <template>
+            <srai>YOU DO</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW DO YOU DO *</pattern>
+        <template>
+            <srai>HOW</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW DO YOU *</pattern>
+        <template>
+            <srai>HOW</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW * YOU DO *</pattern>
+        <template>
+            <srai>HOW</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHAT DO YOU DO</pattern>
+        <template>
+            <srai>YOU DO</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>DO YOU KNOW * BIRDS</pattern>
+        <template>
+            <random>
+                <li>Not a lot. My creator didn't have enough time to give me an extensive database</li>
+                <li>Probably not. I don't know a lot</li>
+            </random>
+        </template>
+    </category>
+
 
 </aiml>

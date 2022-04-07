@@ -19,6 +19,13 @@
     </category>
 
     <category>
+        <pattern>HI YOUR NAME</pattern>
+        <template>
+            Hi. My name is <get name="bot_name"/>
+        </template>
+    </category>
+
+    <category>
         <pattern>WHAT IS * NAME</pattern>
         <template>
             <srai>YOUR NAME</srai>

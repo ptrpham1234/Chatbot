@@ -1,19 +1,48 @@
-import re
+#!/usr/bin/env python3
+#############################################################################################################
+# Assignment:          Homework 1
+# Author:              Peter Pham (pxp180041)
+# Course:              CS 4348.002
+# Date Started:        03/20/2022
+# IDE:                 pycharm
+#
+# Description:
+#
+#############################################################################################################
 
+################# I M P O R T S #################
+import re
 import aiml
 import os
 import logging
+import nltk
+from Person import Person
+from nltk.corpus import stopwords
+from nltk.tokenize.treebank import TreebankWordDetokenizer
+
+stopwords = set(stopwords.words('english'))
+
+# setup the save directory
+basePath = r"".join(os.getcwd())  # get the current directory
+dataPath = r"".join(os.path.join(basePath, 'data'))
 
 
+#############################################################################################################
+#  * Function:            main
+#  * Author:              Peter Pham (pxp180041)
+#  * Date Started:        03/20/2022
+#  *
+#  * Description:
+#  * Controls the flow of data process the home page and grabs all of the links related to birds. Then calls
+#  * the crawl functions that pull data from the birds page and collects more links to traverse
+#############################################################################################################
 def main():
-    # setup the save directory
-    basePath = r"".join(os.getcwd())  # get the current directory
-    dataPath = r"".join(os.path.join(basePath, 'data'))
 
     BRAIN_FILE = os.path.join(basePath, "bot_brain.brn")
 
     logger = logging.getLogger()
     logger.setLevel(logging.CRITICAL)
+    chatLog = os.path.join(basePath, "chat.log")
 
     kernel = aiml.Kernel()
 
@@ -32,52 +61,138 @@ def main():
         print("Saving brain file: " + BRAIN_FILE)
         # kernel.saveBrain(BRAIN_FILE)
 
-    outputBirdList()
+    intro()
 
-    while True:
-        message = input("user> ").lower()
+    pronoun = ""
 
-        if message == "quit":
-            username = kernel.getPredicate("username")
-            print("penis: username = " + username)
-            exit()
+    with open(chatLog, 'w') as log:
+        while True:
+            message = input("user> ").lower()
 
-        if askBirdList(message):
-            outputBirdList()
+            log.write("user> " + message + r"\n")
 
-        elif message == "save":
-            kernel.saveBrain("bot_brain.brn")
+            if message == "quit":
+                username = kernel.getPredicate("username")
+                print("Bot> Goodbye " + username)
+                exit()
 
-        else:
-            bot_response = kernel.respond(message)
-            print("Bot> " + bot_response)
+            elif message == "save":
+                kernel.saveBrain("bot_brain.brn")
+
+            else:
+                message, pronoun = processMessage(message, pronoun)
+                bot_response = kernel.respond(message)
+                print("Bot> " + bot_response)
+                log.write("Bot> " + bot_response + r"\n")
 
 
-def outputBirdList():
-    print("Bot> Here are the list of species I know:")
-    print("Northern Cardinal")
-    print("Northern Mockingbird")
-    print("Mourning Dove")
-    print("White-winged Dove")
-    print("Great-tailed Grackle")
-    print("Yellow-rumped Warbler")
-    print("House Sparrow")
+#############################################################################################################
+#  * Function:            main
+#  * Author:              Peter Pham (pxp180041)
+#  * Date Started:        03/20/2022
+#  *
+#  * Description:
+#  * Controls the flow of data process the home page and grabs all of the links related to birds. Then calls
+#  * the crawl functions that pull data from the birds page and collects more links to traverse
+#############################################################################################################
+def intro():
+    print("Bot> Hi my name is Karl. I'm a bird bot.")
+    print("Bot> Here are the list of bird species I know:")
+    print("Northern Cardinal            American Goldfinch")
+    print("Northern Mockingbird         House Finch")
+    print("Mourning Dove                Carolina Chickadee")
+    print("White-winged Dove            Carolina Wren")
+    print("Great-tailed Grackle         Blue Jay")
+    print("Yellow-rumped Warbler        Barn Swallow")
+    print("House Sparrow                Eastern Phoebe")
     print("Ruby-crowned Kinglet")
-    print("Eastern Phoebe")
-    print("Barn Swallow")
-    print("Blue Jay")
-    print("Carolina Wren")
-    print("Carolina Chickadee")
-    print("House Finch")
-    print("Orange-crowned Warbler")
-    print("Red-winged Blackbird")
-    print("American Goldfinch")
-    print("Painted Bunting")
-    print("European Starling")
-    print("Red-bellied Woodpecker")
+    print("\nBot> You can ask me about their diet, size and lifespan")
+    print("Bot> I can also give you a random fact about a bird")
+    print("Bot> I also know a couple of jokes if you're into that.")
+    print("Bot> Lets start with your name. What is your name?")
 
-def askBirdList(message):
-    return re.match("what * of birds *", message) or re.match("give a * of bird.", message) or re.match("list * birds", message)
+
+#############################################################################################################
+#  * Function:            main
+#  * Author:              Peter Pham (pxp180041)
+#  * Date Started:        03/20/2022
+#  *
+#  * Description:
+#  * Controls the flow of data process the home page and grabs all of the links related to birds. Then calls
+#  * the crawl functions that pull data from the birds page and collects more links to traverse
+#############################################################################################################
+def processMessage(message, pronoun):
+
+    tokens = tokenize(message)
+    new_tokens = list(tokens)
+    pos_tags = pos(new_tokens)
+    return_message = ""
+    newPronoun = False
+
+    size_words = {"size", "big", "large", "width", "dimensions", "long"}
+    life_words = {"live"}
+    food_words = {"eat", "food", "diet"}
+
+    for word in new_tokens:
+        if word in stopwords:
+            new_tokens.remove(word)
+
+    with open(os.path.join(dataPath, 'birdnames.set'), 'r') as file:
+        bird_names = file.read().lower().replace("-", " ")
+        bird_names = set(tokenize(bird_names))
+
+        for word in new_tokens:
+            if word in bird_names:
+                return_message += word + " "
+                newPronoun = True
+
+        if newPronoun:
+            pronoun = return_message
+
+        for pairing in pos_tags:
+            if pairing[1] == "PRP":
+                return_message = pronoun
+
+    for pairing in pos_tags:
+        # print(pairing[1])
+        if pairing[0] in food_words:
+            return_message = "food " + return_message
+        elif pairing[0] in life_words:
+            return_message = "life " + return_message
+        elif pairing[0] in size_words:
+            return_message = "size " + return_message
+
+    if return_message == "":
+        return_message = TreebankWordDetokenizer().detokenize(tokens)
+
+    return return_message, pronoun
+
+
+#############################################################################################################
+#  * Function:            main
+#  * Author:              Peter Pham (pxp180041)
+#  * Date Started:        03/20/2022
+#  *
+#  * Description:
+#  * Controls the flow of data process the home page and grabs all of the links related to birds. Then calls
+#  * the crawl functions that pull data from the birds page and collects more links to traverse
+#############################################################################################################
+def tokenize(string):
+    string = string.replace("\'", "")
+    return nltk.word_tokenize(string)
+
+#############################################################################################################
+#  * Function:            main
+#  * Author:              Peter Pham (pxp180041)
+#  * Date Started:        03/20/2022
+#  *
+#  * Description:
+#  * Controls the flow of data process the home page and grabs all of the links related to birds. Then calls
+#  * the crawl functions that pull data from the birds page and collects more links to traverse
+#############################################################################################################
+def pos(tokens):
+    return nltk.pos_tag(tokens)
+
 
 
 #############################################################################################################

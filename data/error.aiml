@@ -1,10 +1,10 @@
-<!--<?xml version="2.0" encoding="UTF-8"?>-->
-<!--<aiml version="2.0">-->
+<?xml version="2.0" encoding="UTF-8"?>
+<aiml version="2.0">
 
-<!--    <category>-->
-<!--        <pattern>*</pattern>-->
-<!--        <template>-->
-<!--            Sorry my creator hasn't programmed that in yet. Please try again.-->
-<!--        </template>-->
-<!--    </category>-->
-<!--</aiml>-->
+    <category>
+        <pattern>*</pattern>
+        <template>
+            Sorry my creator hasn't programmed that in yet. Please try again.
+        </template>
+    </category>
+</aiml>

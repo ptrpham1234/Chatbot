@@ -380,12 +380,187 @@
     </category>
 
     <category>
-        <think>
-            <set name="northern_cardinal_size">The northern cardinal is a mid-sized songbird with a body length of 21–23 cm (8.3–9.1 in)</set>
-            <set name="northern_mockingbird">Northern mockingbirds measure from 20.5 to 28 cm (8.1 to 11.0 in) including a tail almost as long as its body</set>
-            <set name="white_winged_dove">White Doves are small birds, about 12" from head to tail</set>
-            <set name="great_tailed_grackle">Great-tailed grackles are medium-sized birds (larger than starlings and smaller than crows; 38 cm (15 in)-46 cm (18 in))</set>
-            <set name="yellow-rumped warbler">The yellow-rumped warbler is a mid-to-large sized species. The total length of the species can range from 12 to 15 cm (4.7 to 5.9 in) long, with a wingspan of 19 to 24 cm (7.5 to 9.4 in)</set>
-        </think>
+        <pattern>SIZE NORTHERN CARDINAL</pattern>
+        <template>The northern cardinal is a mid-sized songbird with a body length of 21–23 cm (8.3–9.1 in)</template>
     </category>
+    <category>
+        <pattern>SIZE WHITE WINGED DOVE</pattern>
+        <template>White Doves are small birds, about 12" from head to tail</template>
+    </category>
+    <category>
+        <pattern>SIZE GREAT TAILED GRACKLE</pattern>
+        <template>Great-tailed grackles are medium-sized birds (larger than starlings and smaller than crows; 38 cm (15 in)-46 cm (18 in))</template>
+    </category>
+    <category>
+        <pattern>SIZE YELLOW RUMPED WARBLER</pattern>
+        <template>The yellow-rumped warbler is a mid-to-large sized species. The total length of the species can range from 12 to 15 cm (4.7 to 5.9 in) long, with a wingspan of 19 to 24 cm (7.5 to 9.4 in)</template>
+    </category>
+    <category>
+        <pattern>SIZE HOUSE SPARROW</pattern>
+        <template>Here are the measurements for the House Sparrows: Length: 5.9-6.7 in (15-17 cm) · Weight: 0.9-1.1 oz (27-30 g) · Wingspan: 7.5-9.8 in (19-25 cm).</template>
+    </category>
+    <category>
+        <pattern>SIZE RUBY CROWNED KINGLET</pattern>
+        <template>The ruby-crowned kinglet is a very small bird, being 9 to 11 cm (3.5 to 4.3 in) long, having a wingspan of 16 to 18 cm (6.3 to 7.1 in)</template>
+    </category>
+    <category>
+        <pattern>SIZE EASTERN PHOEBE</pattern>
+        <template>The eastern phoebe measure in at around Length: 5.5-6.7 in (14-17 cm)</template>
+    </category>
+    <category>
+        <pattern>SIZE BARN SWALLOW</pattern>
+        <template>Barn swallows are small birds. They range in size from 14.6 to 19.9 cm long, with a wingspan of 31.8 to 34.3 cm.</template>
+    </category>
+    <category>
+        <pattern>SIZE BLUE JAY</pattern>
+        <template>The blue jay measures 22–30 cm (9–12 in) from bill to tail with a wingspan of 34–43 cm (13–17 in)</template>
+    </category>
+    <category>
+        <pattern>SIZE CAROLINA WREN</pattern>
+        <template>At 12.5 to 14 cm (4.9 to 5.5 in) long, with a 29 cm (11 in) wingspan and a weight of about 18 to 23 g (0.63 to 0.81 oz), the Carolina wren is a fairly large wren</template>
+    </category>
+    <category>
+        <pattern>SIZE CAROLINA CHICKADEE</pattern>
+        <template>The Carolina chickadee grows to about 4.5 inches in length. It has a small, plump body with a short neck and a large head</template>
+    </category>
+    <category>
+        <pattern>SIZE House Finch</pattern>
+        <template>This is a moderately-sized finch. Adult birds are 12.5 to 15 centimetres (5 to 6 inches) long, with a wingspan of 20 to 25 cm (8 to 10 in).</template>
+    </category>
+    <category>
+        <pattern>SIZE American Goldfinch</pattern>
+        <template>The American goldfinch is a small finch, 11–14 cm (4.3–5.5 in) long, with a wingspan of 19–22 cm (7.5–8.7 in).</template>
+    </category>
+
+
+
+    <category>
+        <pattern>LIFE Northern Cardinal</pattern>
+        <template>On average, northern cardinals live for 3 years in the wild although several individuals have had life spans of 13 to 15 years. The longevity record for a captive northern cardinal is 28 ½ years</template>
+    </category>
+    <category>
+        <pattern>LIFE Northern Mockingbird</pattern>
+        <template>The bird's lifespan in the wild is up to eight years, but captive northern mockingbirds have lived to age 20.</template>
+    </category>
+    <category>
+        <pattern>LIFE Mourning Dove</pattern>
+        <template>The average life span for an adult Mourning Dove is 1.5 years. The oldest known free-living bird, discovered through bird banding research, was over 31 years old. This is the record life span for a North American bird that lives on land.</template>
+    </category>
+    <category>
+        <pattern>LIFE White winged Dove</pattern>
+        <template>The oldest recorded wild individual lived to 21 years and 9 months, though the typical lifespan is closer to 10 or 15 years. In captivity, they have been recorded to live up to 25 years.</template>
+    </category>
+    <category>
+        <pattern>LIFE Great tailed Grackle</pattern>
+        <template>The most extended lifespan amongst Great-tailed Grackle, Quiscalus mexicanus, birds were noted at 12.5 years in the wild.</template>
+    </category>
+    <category>
+        <pattern>LIFE Yellow rumped Warbler</pattern>
+        <template>The oldest recorded Yellow-rumped Warbler was at least 7 years old.</template>
+    </category>
+    <category>
+        <pattern>LIFE House Sparrow</pattern>
+        <template>Typical lifespan of the House Sparrow is 3 - 5 years in the wild with the current record just over 13 years. Only about 20 percent of young survive their first year.</template>
+    </category>
+    <category>
+        <pattern>LIFE Ruby crowned Kinglet</pattern>
+        <template>The average lifespan of the species 4-6 years. The ruby-crowned kinglets are believed to live more than five years in wildlife. Also, the longest recorded lifespan of golden-crowned kinglets is more than six years.</template>
+    </category>
+    <category>
+        <pattern>LIFE Eastern Phoebe</pattern>
+        <template>Eastern phoebes can live up to 10 years. The oldest known Eastern phoebe lived for ten years and four months.</template>
+    </category>
+    <category>
+        <pattern>LIFE Barn Swallow</pattern>
+        <template>Barn swallows usually live about four years, but can live as long as eight years.</template>
+    </category>
+    <category>
+        <pattern>LIFE Blue Jay</pattern>
+        <template>The oldest blue jay studied by researchers in the wild lived to be 17 years and 6 months old, most blue jays live to about 7 years old. One captive female lived for 26 years and 3 months.</template>
+    </category>
+    <category>
+        <pattern>LIFE Carolina Wren</pattern>
+        <template>The average lifespan of the C. wren is 6 years in the wild</template>
+    </category>
+    <category>
+        <pattern>LIFE Carolina Chickadee</pattern>
+        <template>The oldest known Carolina Chickadee was at least 10 years, 11 months old when it was recaptured and rereleased during banding operations in West Virginia in 1974.</template>
+    </category>
+    <category>
+        <pattern>LIFE House Finch</pattern>
+        <template>House finches are known to live up to 11 years and 7 months in the wild, though most probably live much shorter lives.</template>
+    </category>
+    <category>
+        <pattern>LIFE American Goldfinch</pattern>
+        <template>Goldfinches are very vocal birds. These birds have a lifespan of 3 to 6 years in the wild.</template>
+    </category>
+
+
+    <category>
+        <pattern>FOOD Northern Cardinal</pattern>
+        <template>Feeds on many insects, including beetles, true bugs, grasshoppers, caterpillars, ants, flies, and many others, also spiders, centipedes, and snails. Most of diet is vegetable matter, including seeds of weeds and grasses, waste grain, leaf buds, flowers, and many berries and wild fruits. Young are fed mostly insects.</template>
+    </category>
+    <category>
+        <pattern>FOOD Northern Mockingbird</pattern>
+        <template>Northern Mockingbirds eat mainly insects in summer but switch to eating mostly fruit in fall and winter. Among their animal prey are beetles, earthworms, moths, butterflies, ants, bees, wasps, grasshoppers, and sometimes small lizards. They eat a wide variety of berries, including from ornamental bushes, as well as fruits from multiflora rose. They’ve been seen drinking sap from the cuts on recently pruned trees.</template>
+    </category>
+    <category>
+        <pattern>FOOD Mourning Dove</pattern>
+        <template>Unlike other songbirds of summer, Mourning Doves don’t have an appetite for insects, spiders and creepy crawlies. They’re almost 100% granivores, going for the grains, seeds from wild grasses, weeds and herbs. They’ll also grab the occasional berry or snail.</template>
+    </category>
+    <category>
+        <pattern>FOOD White winged Dove</pattern>
+        <template>Across much of its range, the vegetarian White-winged Dove eats mostly grains and other agricultural crops like wheat, sunflower, milo, corn, and safflower. It also eats fruits and large seeds from plants like spurge, panic grass, bristlegrass, Mexican jumping beans, Chinese tallow, leatherweed, saguaro, lime prickly-ash, brasil, privet, pigeonberry, and ocotillo. The White-winged Dove seems to be predisposed toward large seeds because of its large bill and gape, along with its slower eating style (it never pecks quickly, the way Mourning Doves do).</template>
+    </category>
+    <category>
+        <pattern>FOOD Great tailed Grackle</pattern>
+        <template>Diet is extremely varied; includes many insects, also spiders, millipedes, snails, crayfish, tadpoles, small fish, lizards, eggs and nestlings of other birds, and sometimes adult birds. Also eats a wide variety of seeds, waste grain, berries, fruit, and nuts.</template>
+    </category>
+    <category>
+        <pattern>FOOD Yellow rumped Warbler</pattern>
+        <template>Insects and berries. Feeds on caterpillars, wasps, grasshoppers, gnats, aphids, beetles, and many other insects; also spiders. Feeds in winter on berries of bayberry, juniper, wax myrtle, poison ivy, and others. Can winter farther north than most warblers because it can digest the wax in berry coatings.</template>
+    </category>
+    <category>
+        <pattern>FOOD House Sparrow</pattern>
+        <template>They are frequent visitors to backyard feeders, where they eat most kinds of birdseed, especially millet, corn, and sunflower seed.</template>
+    </category>
+    <category>
+        <pattern>FOOD Ruby crowned Kinglet</pattern>
+        <template>Mostly insects. At all seasons, diet is primarily small insects, the birds concentrating on whatever is most readily available; includes many small beetles, flies, leafhoppers, true bugs, caterpillars, and many others. Also eats spiders and pseudoscorpions; diet includes eggs of insects and spiders. In winter, also eats some berries and seeds. Sometimes takes oozing sap or visits flowers, possibly for nectar.</template>
+    </category>
+    <category>
+        <pattern>FOOD Eastern Phoebe</pattern>
+        <template>Mostly insects, some berries. Insects make up great majority of summer diet; included are many small wasps, bees, beetles, flies, true bugs, grasshoppers, and others. Also eats some spiders, ticks, and millipedes.</template>
+    </category>
+    <category>
+        <pattern>FOOD Barn Swallow</pattern>
+        <template>Diet. Insects. Feeds on a wide variety of flying insects, especially flies (including house flies and horse flies), beetles, wasps, wild bees, winged ants, and true bugs. Also eats some moths, damselflies, grasshoppers, and other insects, and a few spiders and snails.</template>
+    </category>
+    <category>
+        <pattern>FOOD Blue Jay</pattern>
+        <template>They prefer peanuts, sunflower seeds, and suet. Planting oak trees will make acorns available for jays of the future. Blue Jays often take drinks from birdbaths.</template>
+    </category>
+    <category>
+        <pattern>FOOD Carolina Wren</pattern>
+        <template>Feeds primarily on insects of many kinds, especially caterpillars, beetles, true bugs, grasshoppers, crickets, and many others. Also feeds on many spiders, some millipedes and snails. Sometimes catches and eats small lizards or tree frogs. Also eats berries and small fruits, especially in winter, and some seeds.</template>
+    </category>
+    <category>
+        <pattern>FOOD Carolina Chickadee</pattern>
+        <template>The Carolina chickadee feeds mostly on insects and spiders, but will also eat seeds and berries, especially in winter. They can often be seen at bird feeders in winter. It is acrobatic while feeding: chickadees hang upside down and tilt their head and body up to reach insects on leaves and tree bark. In winter, they live in small flocks of 2 to 8 chickadees to create a feeding territory, which they will defend from other flocks.</template>
+    </category>
+    <category>
+        <pattern>FOOD House Finch</pattern>
+        <template>Feeds mainly on weed seeds. Other important items include buds and flower parts in spring, berries and small fruits in late summer and fall. Also eats a few insects, mostly small ones such as aphids. Young are fed on regurgitated seeds.</template>
+    </category>
+    <category>
+        <pattern>FOOD American Goldfinch</pattern>
+        <template>Diet. Mostly seeds, some insects. Diet is primarily seeds, especially those of the daisy (composite) family, also those of weeds and grasses, and small seeds of trees such as elm, birch, and alder. Also eats buds, bark of young twigs, maple sap.</template>
+    </category>
+
+    <category>
+        <pattern>LOCATION *</pattern>
+        <template>All of the bird species in my database are from North America</template>
+    </category>
+
+
 </aiml>

@@ -43,19 +43,6 @@
         </template>
     </category>
 
-    <category>
-        <pattern>mourning dove</pattern>
-        <template><map name="bird_size.map">mourning dove</map></template>
-    </category>
-
-     <category>
-        <pattern>HAVE YOU HEARD OF <set>creators</set></pattern>
-        <template>Yeah, I give them some credit to my existence!</template>
-    </category>
-
-    <category>
-        <pattern>HAVE YOU HEARD OF *</pattern>
-        <template>Not really</template>
-    </category>
+    <category></category>
 
 </aiml>
