@@ -194,10 +194,10 @@ def processMessage(message, pronoun, likes, dislikes):
         if word in stopwords:
             new_tokens.remove(word)
 
-    score = sia.polarity_scores(message)
     # print out their likes and dislikes if asks for them by the user
     for item in pos_tags:
         if item[1] == "WP" and "it" not in message:
+            score = sia.polarity_scores(message)
             if score['neg'] < score['pos']:
                 print("Bot> Here are a list of your likes:")
                 print(likes)
@@ -209,14 +209,21 @@ def processMessage(message, pronoun, likes, dislikes):
 
 
     if not skip and "like" in message or "dislike" in message or "love" in message or "hate" in message:
+        score = sia.polarity_scores(message)
         # Find users likes and dislikes if they inputted that in
         if score['neg'] < score['pos']:
-            item = message[message.find("like"):].replace("like", "").strip()
+            if "love" in message:
+                item = message[message.find("love"):].replace("love", "").strip()
+            else:
+                item = message[message.find("like"):].replace("like", "").strip()
             dislikes.append(item)
             return_message += "DISLIKES"
             skip = True
         elif score['neg'] > score['pos']:
-            item = message[message.find("like"):].replace("like", "").strip()
+            if "hate" in message:
+                item = message[message.find("hate"):].replace("hate", "").strip()
+            else:
+                item = message[message.find("like"):].replace("like", "").strip()
             likes.append(item)
             return_message += "LIKES"
             skip = True
