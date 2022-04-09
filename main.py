@@ -3,7 +3,7 @@
 # Assignment:          Homework 1
 # Author:              Peter Pham (pxp180041)
 # Course:              CS 4348.002
-# Date Started:        03/20/2022
+# Date Started:        04/01/2022
 # IDE:                 pycharm
 #
 # Description:
@@ -12,15 +12,15 @@
 
 ################# I M P O R T S #################
 import re
-import aiml
 import os
+import aiml
 import nltk
 import pickle
 from Person import Person
 from nltk.corpus import stopwords
-from nltk.tokenize.treebank import TreebankWordDetokenizer
-from nltk.sentiment import SentimentIntensityAnalyzer
 from nltk.stem import WordNetLemmatizer
+from nltk.sentiment import SentimentIntensityAnalyzer
+from nltk.tokenize.treebank import TreebankWordDetokenizer
 
 # Init the Wordnet Lemmatizer
 lemmatizer = WordNetLemmatizer()
@@ -31,13 +31,14 @@ stopwords = set(stopwords.words('english'))
 basePath = r"".join(os.getcwd())  # get the current directory
 dataPath = r"".join(os.path.join(basePath, 'data'))
 
+# initialize the sentiment analyzer
 sia = SentimentIntensityAnalyzer()
 
 
 #############################################################################################################
 #  * Function:            main
 #  * Author:              Peter Pham (pxp180041)
-#  * Date Started:        03/20/2022
+#  * Date Started:        04/01/2022
 #  *
 #  * Description:
 #  * Controls the flow of data process the home page and grabs all of the links related to birds. Then calls
@@ -59,9 +60,11 @@ def main():
     # so it doesn't keep on saying loading
     # kernel.verbose(isVerbose=False)
 
+    # see if a brain file exists, if it does then load it in
     if os.path.exists(BRAIN_FILE):
         print("Loading from brain file: " + BRAIN_FILE)
         kernel.loadBrain(BRAIN_FILE)
+    # if not then load in the aiml files
     else:
         print("Parsing aiml files")
 
@@ -71,33 +74,53 @@ def main():
         print("Saving brain file: " + BRAIN_FILE)
         kernel.saveBrain(BRAIN_FILE)
 
+    # if a user data file exists the load it in
     if os.path.exists(userFile):
         with open(userFile, "rb") as file:
             user = pickle.load(file)
+
+            # get user's name
             if user.getName() is not None:
                 print(user.getName())
                 kernel.setPredicate("username", user.getName())
+            # get the user's age
             if user.getAge() is not None:
                 kernel.setPredicate("age", user.getAge())
+            # get the user's likes and dislikes
             likes = user.getLikes()
             dislikes = user.getDislikes()
 
+    # print the intro
     intro()
 
+    # declare the pronoun var. holds the noun of the previously mentioned bird
     pronoun = ""
 
+    # start a chat log
     with open(chatLog, 'w') as log:
+        # keep on asking the user until the quit keyword is mentioned
         while notExit:
+            # asks the user
             message = input("user> ").lower()
 
+            # log it
             log.write("user> " + message + r"\n")
 
+            # if the user enters a quit
             if message == "quit":
+                # open the user file to write
                 with open(userFile, "wb") as file:
+                    # get the user data from the bot
                     username = kernel.getPredicate("username")
                     age = kernel.getPredicate("age")
+
+                    # create a user class to save
                     user = Person(name=username, age=age, likes=likes, dislikes=dislikes)
+
+                    # dump it to the pickle file
                     pickle.dump(user, file)
+
+                    # Karl says goodbye
                     print("Karl> User file saved")
                     print(kernel.respond(message))
                     notExit = False
@@ -105,22 +128,23 @@ def main():
             elif message == "save":
                 kernel.saveBrain("bot_brain.brn")
 
+            # process the message
             else:
                 message, pronoun, newLikes, newDislikes = processMessage(message, pronoun, likes, dislikes)
 
+                # send the processed messaged to Karl
                 bot_response = kernel.respond(message)
                 print("Karl> " + bot_response + "\n")
                 log.write("Karl> " + bot_response + r"\n")
 
 
 #############################################################################################################
-#  * Function:            main
+#  * Function:            intro
 #  * Author:              Peter Pham (pxp180041)
-#  * Date Started:        03/20/2022
+#  * Date Started:        04/01/2022
 #  *
 #  * Description:
-#  * Controls the flow of data process the home page and grabs all of the links related to birds. Then calls
-#  * the crawl functions that pull data from the birds page and collects more links to traverse
+#  * Dialogue for the intro of the bot. Greats the user and tells them what he does.
 #############################################################################################################
 def intro():
     print("\n\nKarl> Hi my name is Karl. I'm a bird bot.")
@@ -141,13 +165,12 @@ def intro():
 
 
 #############################################################################################################
-#  * Function:            main
+#  * Function:            functionality
 #  * Author:              Peter Pham (pxp180041)
-#  * Date Started:        03/20/2022
+#  * Date Started:        04/01/2022
 #  *
 #  * Description:
-#  * Controls the flow of data process the home page and grabs all of the links related to birds. Then calls
-#  * the crawl functions that pull data from the birds page and collects more links to traverse
+#  * Tells the user what the functionality is of the bot
 #############################################################################################################
 def functionality():
     print("\n\nKarl> Here are the list of bird species I know:")
@@ -166,13 +189,13 @@ def functionality():
 
 
 #############################################################################################################
-#  * Function:            main
+#  * Function:            processMessage
 #  * Author:              Peter Pham (pxp180041)
-#  * Date Started:        03/20/2022
+#  * Date Started:        04/01/2022
 #  *
 #  * Description:
-#  * Controls the flow of data process the home page and grabs all of the links related to birds. Then calls
-#  * the crawl functions that pull data from the birds page and collects more links to traverse
+#  * Process the message from the user. It can be a like or dislike statement, a bird question or everything
+#  * else.
 #############################################################################################################
 def processMessage(message, pronoun, likes, dislikes):
     message = removePunctuation(message)
@@ -185,6 +208,7 @@ def processMessage(message, pronoun, likes, dislikes):
     skip = False
     find = False
 
+    # if the message is empty return the empty message command to Karl
     if message == "":
         return "EMPTY MESSAGE", pronoun, likes, dislikes
 
@@ -198,10 +222,12 @@ def processMessage(message, pronoun, likes, dislikes):
     if re.match(r"what can you do", message) or re.match(r"what do you do", message):
         functionality()
 
+    # remove stopwords
     for word in new_tokens:
         if word in stopwords:
             new_tokens.remove(word)
 
+    # get the sentiment score from the user
     score = sia.polarity_scores(message)
 
     # print out their likes and dislikes if asks for them by the user
@@ -224,6 +250,7 @@ def processMessage(message, pronoun, likes, dislikes):
                     return_message = "LITTLE DISLIKES"
                 skip = True
 
+    # if theres a keyword in the message but it is not asking for the users likes and dislikes
     if not skip and ("like" in message or "dislike" in message or "love" in message or "hate" in message or "favorite" in message):
         # Find users likes and dislikes if they inputted that in
         if score['compound'] > 0:
@@ -312,26 +339,24 @@ def processMessage(message, pronoun, likes, dislikes):
 
 
 #############################################################################################################
-#  * Function:            main
+#  * Function:            tokenize
 #  * Author:              Peter Pham (pxp180041)
-#  * Date Started:        03/20/2022
+#  * Date Started:        04/04/2022
 #  *
 #  * Description:
-#  * Controls the flow of data process the home page and grabs all of the links related to birds. Then calls
-#  * the crawl functions that pull data from the birds page and collects more links to traverse
+#  * Tokenizes the message
 #############################################################################################################
 def tokenize(string):
     return nltk.word_tokenize(string)
 
 
 #############################################################################################################
-#  * Function:            main
+#  * Function:            removePunctuation
 #  * Author:              Peter Pham (pxp180041)
-#  * Date Started:        03/20/2022
+#  * Date Started:        04/07/2022
 #  *
 #  * Description:
-#  * Controls the flow of data process the home page and grabs all of the links related to birds. Then calls
-#  * the crawl functions that pull data from the birds page and collects more links to traverse
+#  * Remove the punctuation from the message
 #############################################################################################################
 def removePunctuation(string):
     punctuation = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
@@ -344,23 +369,21 @@ def removePunctuation(string):
 #############################################################################################################
 #  * Function:            main
 #  * Author:              Peter Pham (pxp180041)
-#  * Date Started:        03/20/2022
+#  * Date Started:        04/07/2022
 #  *
 #  * Description:
-#  * Controls the flow of data process the home page and grabs all of the links related to birds. Then calls
-#  * the crawl functions that pull data from the birds page and collects more links to traverse
+#  * Creates a list of POS tags to analyze
 #############################################################################################################
 def pos(tokens):
     return nltk.pos_tag(tokens)
 
 #############################################################################################################
-#  * Function:            main
+#  * Function:            token_lemmatize
 #  * Author:              Peter Pham (pxp180041)
-#  * Date Started:        03/20/2022
+#  * Date Started:        04/07/2022
 #  *
 #  * Description:
-#  * Controls the flow of data process the home page and grabs all of the links related to birds. Then calls
-#  * the crawl functions that pull data from the birds page and collects more links to traverse
+#  * Lemmatizes the words so that it can be a bit more consistent
 #############################################################################################################
 def token_lemmatize(tokens):
     newTokens = list()
@@ -372,7 +395,7 @@ def token_lemmatize(tokens):
 #############################################################################################################
 #  * Function:            main
 #  * Author:              Peter Pham (pxp180041)
-#  * Date Started:        02/08/2022
+#  * Date Started:        04/01/2022
 #  *
 #  * Description:
 #  * Main purpose is to check for arguments and start main function
