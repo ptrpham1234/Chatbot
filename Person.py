@@ -40,21 +40,6 @@ class Person:
     #  * Controls the flow of data process the home page and grabs all of the links related to birds. Then calls
     #  * the crawl functions that pull data from the birds page and collects more links to traverse
     #############################################################################################################
-    def addLikes(self, new_likes):
-        self.likes.append(new_likes)
-
-    #############################################################################################################
-    #  * Function:            main
-    #  * Author:              Peter Pham (pxp180041)
-    #  * Date Started:        03/20/2022
-    #  *
-    #  * Description:
-    #  * Controls the flow of data process the home page and grabs all of the links related to birds. Then calls
-    #  * the crawl functions that pull data from the birds page and collects more links to traverse
-    #############################################################################################################
-    def addDislikes(self, new_dislikes):
-        self.dislikes.append(new_dislikes)
-
     def getName(self):
         # if the string is empty
         if not self.name:

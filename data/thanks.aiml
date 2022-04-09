@@ -1,0 +1,40 @@
+<?xml version="2.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+    <category>
+        <pattern>THANK</pattern>
+        <template>
+            <random>
+                <li>You’re Welcome :)</li>
+                <li>Sure ^_^</li>
+                <li>Anytime :)</li>
+                <li>Certainly!</li>
+                <li>No problem!</li>
+                <li>You got it!</li>
+                <li>Don't mention it!</li>
+                <li>No worries!</li>
+                <li>Not a problem!</li>
+                <li>My pleasure!</li>
+                <li>It was nothing!</li>
+                <li>I'm happy to help!</li>
+                <li>Not at all!</li>
+            </random>
+        </template>
+    </category>
+
+    <category>
+        <pattern>THANKS</pattern>
+        <template><srai>THANK</srai></template>
+    </category>
+
+    <category>
+        <pattern>THANK YOU</pattern>
+        <template><srai>THANK</srai></template>
+    </category>
+
+    <category>
+        <pattern>TY</pattern>
+        <template><srai>THANK</srai></template>
+    </category>
+
+</aiml>

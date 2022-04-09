@@ -1,6 +1,11 @@
 <?xml version="2.0" encoding="UTF-8"?>
 <aiml version="2.0">
 
+
+    <category>
+        <pattern>EMPTY MESSAGE</pattern>
+        <template>Uhh oh. Your message is empty. Please try again</template>
+    </category>
     <category>
         <pattern>*</pattern>
         <template>

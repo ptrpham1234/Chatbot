@@ -82,23 +82,32 @@
 
     <category>
         <pattern>IM * YEARS OLD</pattern>
-        <template>WOW that's old
-            <think><set name="age"><star/></set></think>
-        </template>
+        <template><think><set name="age"><star/></set></think>WOW that's old</template>
     </category>
 
     <category>
         <pattern>I AM * YEARS OLD</pattern>
-        <template>WOW that's old
-            <think><set name="age"><star/></set></think>
-        </template>
+        <template><think><set name="age"><star/></set></think>WOW that's old</template>
     </category>
 
     <category>
         <pattern>* YEARS OLD </pattern>
-        <template>WOW that's old
-            <think><set name="age"><star/></set></think>
-        </template>
+        <template><think><set name="age"><star/></set></think>WOW that's old</template>
+    </category>
+
+    <category>
+        <pattern>IM * YEAR OLD</pattern>
+        <template><think><set name="age"><star/></set></think>WOW that's old</template>
+    </category>
+
+    <category>
+        <pattern>I AM * YEAR OLD</pattern>
+        <template><think><set name="age"><star/></set></think>WOW that's old</template>
+    </category>
+
+    <category>
+        <pattern>* YEAR OLD </pattern>
+        <template><think><set name="age"><star/></set></think>WOW that's old</template>
     </category>
 
     <category>
@@ -150,9 +159,10 @@
                 <li>bye</li>
                 <li>It was nice talking to you</li>
                 <li>tata!!</li>
-                <li>Let's talk again tomorrow :)</li>
+                <li>Let's talk again tomorrow ^_^</li>
                 <li>I hope that you had a great time.</li>
                 <li>bye take care</li>
+                <li>Take it easy</li>
             </random>
         </template>
     </category>
@@ -166,6 +176,13 @@
 
     <category>
         <pattern>GOOD BYE *</pattern>
+        <template>
+            <srai>BYE</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>QUIT</pattern>
         <template>
             <srai>BYE</srai>
         </template>
@@ -567,31 +584,23 @@
     </category>
 
     <category>
-        <pattern>THANK</pattern>
-        <template>
-            <random>
-                <li>You’re Welcome</li>
-                <li>Sure</li>
-                <li>Anytime</li>
-                <li>Certainly</li>
-                <li>No problem</li>
-            </random>
-        </template>
+        <pattern>LOTS OF LIKES</pattern>
+        <template>Wow you like a lot of things don't you</template>
     </category>
 
     <category>
-        <pattern>THANKS</pattern>
-        <template><srai>THANK</srai></template>
+        <pattern>LITTLE LIKES</pattern>
+        <template>Hmmm you don't like many things huh. Do you like anything else?</template>
     </category>
 
     <category>
-        <pattern>THANK YOU</pattern>
-        <template><srai>THANK</srai></template>
+        <pattern>LOTS OF DISLIKES</pattern>
+        <template>That's a lot of dislikes.</template>
     </category>
 
     <category>
-        <pattern>TY</pattern>
-        <template><srai>THANK</srai></template>
+        <pattern>LITTLE DISLIKES</pattern>
+        <template>That's not a lot of dislikes at all.</template>
     </category>
 
 </aiml>

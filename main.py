@@ -20,6 +20,10 @@ from Person import Person
 from nltk.corpus import stopwords
 from nltk.tokenize.treebank import TreebankWordDetokenizer
 from nltk.sentiment import SentimentIntensityAnalyzer
+from nltk.stem import WordNetLemmatizer
+
+# Init the Wordnet Lemmatizer
+lemmatizer = WordNetLemmatizer()
 
 stopwords = set(stopwords.words('english'))
 
@@ -65,7 +69,7 @@ def main():
         kernel.respond("LEARN AIML")
 
         print("Saving brain file: " + BRAIN_FILE)
-        # kernel.saveBrain(BRAIN_FILE)
+        kernel.saveBrain(BRAIN_FILE)
 
     if os.path.exists(userFile):
         with open(userFile, "rb") as file:
@@ -94,8 +98,8 @@ def main():
                     age = kernel.getPredicate("age")
                     user = Person(name=username, age=age, likes=likes, dislikes=dislikes)
                     pickle.dump(user, file)
-                    print("Bot> User file saved")
-                    print("Bot> Goodbye " + username)
+                    print("Karl> User file saved")
+                    print(kernel.respond(message))
                     notExit = False
 
             elif message == "save":
@@ -105,8 +109,8 @@ def main():
                 message, pronoun, newLikes, newDislikes = processMessage(message, pronoun, likes, dislikes)
 
                 bot_response = kernel.respond(message)
-                print("Bot> " + bot_response + "\n")
-                log.write("Bot> " + bot_response + r"\n")
+                print("Karl> " + bot_response + "\n")
+                log.write("Karl> " + bot_response + r"\n")
 
 
 #############################################################################################################
@@ -119,8 +123,8 @@ def main():
 #  * the crawl functions that pull data from the birds page and collects more links to traverse
 #############################################################################################################
 def intro():
-    print("\n\nBot> Hi my name is Karl. I'm a bird bot.")
-    print("Bot> Here are the list of bird species I know:")
+    print("\n\nKarl> Hi my name is Karl. I'm a bird bot.")
+    print("Karl> Here are the list of bird species I know:")
     print("     Northern Cardinal            American Goldfinch")
     print("     Northern Mockingbird         House Finch")
     print("     Mourning Dove                Carolina Chickadee")
@@ -129,11 +133,11 @@ def intro():
     print("     Yellow-rumped Warbler        Barn Swallow")
     print("     House Sparrow                Eastern Phoebe")
     print("     Ruby-crowned Kinglet")
-    print("\nBot> You can ask me about their diet, size and lifespan")
-    print("Bot> I can also give you a random fact about a bird")
-    print("Bot> I also know a couple of jokes if you're into that.")
-    print("Bot> Type \"quit\" anytime to close me")
-    print("Bot> Lets start with you. Tell me about yourself like your name, age, and/or likes and dislikes.")
+    print("\nKarl> You can ask me about their diet, size and lifespan")
+    print("Karl> I can also give you a random fact about a bird")
+    print("Karl> I also know a couple of jokes if you're into that.")
+    print("Karl> Type \"quit\" anytime to close me")
+    print("Karl> Lets start with you. Tell me about yourself like your name, age, and/or likes and dislikes.")
 
 
 #############################################################################################################
@@ -146,7 +150,7 @@ def intro():
 #  * the crawl functions that pull data from the birds page and collects more links to traverse
 #############################################################################################################
 def functionality():
-    print("\n\nBot> Here are the list of bird species I know:")
+    print("\n\nKarl> Here are the list of bird species I know:")
     print("     Northern Cardinal            American Goldfinch")
     print("     Northern Mockingbird         House Finch")
     print("     Mourning Dove                Carolina Chickadee")
@@ -155,10 +159,10 @@ def functionality():
     print("     Yellow-rumped Warbler        Barn Swallow")
     print("     House Sparrow                Eastern Phoebe")
     print("     Ruby-crowned Kinglet")
-    print("\nBot> You can ask me about their diet, size and lifespan or a general fact")
-    print("Bot> I can also give you a random fact about any bird. Just ask for a random bird fact!")
-    print("Bot> I also know a couple of jokes if you're into that.")
-    print("Bot> Type \"quit\" anytime to close me")
+    print("\nKarl> You can ask me about their diet, size and lifespan or a general fact")
+    print("Karl> I can also give you a random fact about any bird. Just ask for a random bird fact!")
+    print("Karl> I also know a couple of jokes if you're into that.")
+    print("Karl> Type \"quit\" anytime to close me")
 
 
 #############################################################################################################
@@ -173,6 +177,7 @@ def functionality():
 def processMessage(message, pronoun, likes, dislikes):
     message = removePunctuation(message)
     tokens = tokenize(message)
+    tokens = token_lemmatize(tokens)
     new_tokens = list(tokens)
     pos_tags = pos(new_tokens)
     return_message = ""
@@ -180,9 +185,12 @@ def processMessage(message, pronoun, likes, dislikes):
     skip = False
     find = False
 
+    if message == "":
+        return "EMPTY MESSAGE", pronoun, likes, dislikes
+
     # set of topics about a word to match and look for
     size_words = {"size", "big", "large", "width", "dimensions", "long"}
-    life_words = {"live"}
+    life_words = {"live", "reside", "inhabit", "occupy", "located", "locate"}
     food_words = {"eat", "food", "diet"}
     about_words = {"about", "facts", "fact"}
 
@@ -194,42 +202,55 @@ def processMessage(message, pronoun, likes, dislikes):
         if word in stopwords:
             new_tokens.remove(word)
 
+    score = sia.polarity_scores(message)
+
     # print out their likes and dislikes if asks for them by the user
     for item in pos_tags:
-        if item[1] == "WP" and "it" not in message:
-            score = sia.polarity_scores(message)
-            if score['neg'] < score['pos']:
-                print("Bot> Here are a list of your likes:")
+        if (item[1] == "WP" or item[1] == "WDT") and ("it" not in message):
+            if score['compound'] > 0:
+                print("Karl> Here are a list of your likes:")
                 print(likes)
+                if len(likes) > 2:
+                    return_message = "LOTS OF LIKES"
+                else:
+                    return_message = "LITTLE LIKES"
                 skip = True
-            elif score['neg'] > score['pos']:
-                print("Bot> Here are a list of your dislikes:")
+            elif score['compound'] < 0:
+                print("Karl> Here are a list of your dislikes:")
                 print(dislikes)
+                if len(dislikes) > 2:
+                    return_message = "LOTS OF DISLIKES"
+                else:
+                    return_message = "LITTLE DISLIKES"
                 skip = True
 
-
-    if not skip and "like" in message or "dislike" in message or "love" in message or "hate" in message:
-        score = sia.polarity_scores(message)
+    if not skip and ("like" in message or "dislike" in message or "love" in message or "hate" in message or "favorite" in message):
         # Find users likes and dislikes if they inputted that in
-        if score['neg'] < score['pos']:
+        if score['compound'] > 0:
             if "love" in message:
                 item = message[message.find("love"):].replace("love", "").strip()
+            elif "like" in message:
+                item = message[message.find("like"):].replace("like", "").strip()
+            else:
+                item = message[message.find("favorite"):].replace("favorite", "").replace("is ", "").strip()
+            likes.append(item)
+            return_message += "LIKES"
+            skip = True
+        elif score['compound'] < 0:
+            if "hate" in message:
+                item = message[message.find("hate"):].replace("hate", "").strip()
             else:
                 item = message[message.find("like"):].replace("like", "").strip()
             dislikes.append(item)
             return_message += "DISLIKES"
             skip = True
-        elif score['neg'] > score['pos']:
-            if "hate" in message:
-                item = message[message.find("hate"):].replace("hate", "").strip()
-            else:
-                item = message[message.find("like"):].replace("like", "").strip()
-            likes.append(item)
-            return_message += "LIKES"
-            skip = True
 
-    if type(tokens[-1]) == int or float and ("i am" in message or "im" in message):
+    if (type(tokens[-1]) == (int or float)) and ("i am" in message or "im" in message):
         return_message = "IM " + tokens[-1] + " YEARS OLD"
+        skip = True
+
+    if "joke" in message:
+        return_message = "JOKE"
         skip = True
 
     # get the bird names to match
@@ -331,6 +352,21 @@ def removePunctuation(string):
 #############################################################################################################
 def pos(tokens):
     return nltk.pos_tag(tokens)
+
+#############################################################################################################
+#  * Function:            main
+#  * Author:              Peter Pham (pxp180041)
+#  * Date Started:        03/20/2022
+#  *
+#  * Description:
+#  * Controls the flow of data process the home page and grabs all of the links related to birds. Then calls
+#  * the crawl functions that pull data from the birds page and collects more links to traverse
+#############################################################################################################
+def token_lemmatize(tokens):
+    newTokens = list()
+    for word in tokens:
+        newTokens.append(lemmatizer.lemmatize(word))
+    return newTokens
 
 
 #############################################################################################################
